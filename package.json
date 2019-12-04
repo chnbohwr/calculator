@@ -1,40 +1,58 @@
 {
-  "name": "calculator",
-  "version": "0.1.0",
-  "license": "MIT",
-  "homepage": "http://ahfarmer.github.io/calculator",
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "gh-pages": "^2.0.1",
-    "prettier": "^1.17.1",
-    "react-scripts": "^3.0.1"
-  },
-  "dependencies": {
-    "big.js": "^5.2.2",
-    "github-fork-ribbon-css": "^0.2.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  },
+  "name": "simple_react_start_kit_2017",
+  "description": "react webpack2 react-router example",
+  "version": "2.0.0",
+  "main": "src/index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "clean": "rimraf dist/*",
+    "start": "webpack-dev-server --mode development --hot --config webpack.config.js",
+    "build": "npm run clean && webpack --mode production --config webpack.config.js",
+    "build:e2e": "npm run clean && webpack --mode development --config webpack.config.js",
+    "deploy": "npm run dist && gh-pages -d dist",
+    "build:docker": "npm run dist && docker build -t reactdocker .",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
   },
-  "prettier": {
-    "trailingComma": "all"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@babel/core": "7.7.4",
+    "@babel/plugin-proposal-class-properties": "7.7.4",
+    "@babel/plugin-proposal-decorators": "7.7.4",
+    "@babel/plugin-transform-runtime": "7.7.4",
+    "@babel/polyfill": "7.7.0",
+    "@babel/preset-env": "7.7.4",
+    "@babel/preset-react": "7.7.4",
+    "@babel/runtime": "7.7.4",
+    "autoprefixer": "9.7.3",
+    "babel-eslint": "10.0.3",
+    "babel-loader": "8.0.6",
+    "core-js": "2.5.7",
+    "css-loader": "3.2.1",
+    "eslint": "6.7.2",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.17.0",
+    "file-loader": "5.0.2",
+    "gh-pages": "2.1.1",
+    "html-webpack-plugin": "3.2.0",
+    "less": "3.10.3",
+    "less-loader": "5.0.0",
+    "node-sass": "4.13.0",
+    "postcss-loader": "3.0.0",
+    "react-hot-loader": "4.12.18",
+    "rimraf": "3.0.0",
+    "sass-loader": "8.0.0",
+    "style-loader": "1.0.1",
+    "webpack": "4.41.2",
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "3.9.0"
   }
 }
